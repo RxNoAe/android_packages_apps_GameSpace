@@ -23,8 +23,10 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install build dependencies
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0" --sdk_root="$ANDROID_SDK_ROOT"
+      - name: Install SDK packages
+        run: |
+          echo "y" | sdkmanager --licenses >/dev/null 2>&1 || true
+          sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
@@ -36,7 +38,7 @@ jobs:
           path: app/build/outputs/apk/debug/app-debug.apk
 
       - name: Publish release with APK
-        if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/17.0'
+        if: success()
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ github.run_number }}
