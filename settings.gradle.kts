@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "GameSpace"
 include (":app")
+include (":compat")

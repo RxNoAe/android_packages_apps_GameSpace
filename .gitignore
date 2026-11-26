@@ -14,3 +14,4 @@ local.properties
 /prebuilts
 /SettingsLib
 /gradlew.bat
+libs/android-all.jar

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Compile-time stand-ins for AOSP SettingsLib styles. This library is compileOnly,
+     so these resources are never packaged into GameSpace. -->
+<resources>
+    <style name="Theme.SubSettingsBase.Expressive" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.SubSettingsBase" parent="Theme.Material3.DayNight.NoActionBar" />
+    <style name="Theme.AlertDialog.SettingsLib" parent="Theme.Material3.DayNight.Dialog.Alert" />
+    <style name="PreferenceTheme.SettingsLib" parent="PreferenceThemeOverlay" />
+    <style name="Switch.SettingsLib" parent="Widget.AppCompat.CompoundButton.Switch" />
+    <style name="SwitchCompat.SettingsLib" parent="Widget.AppCompat.CompoundButton.Switch" />
+</resources>

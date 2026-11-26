@@ -75,6 +75,9 @@ kapt {
 
 dependencies {
     compileOnly(fileTree(mapOf("dir" to "../system_libs", "include" to listOf("*.jar"))))
+    // Build-time-only stand-ins for AOSP/ROM libraries provided by the device at runtime.
+    // Not packaged into the APK; app code and runtime behavior are unchanged.
+    compileOnly(project(":compat"))
     implementation("androidx.activity:activity-compose:1.12.2")
     implementation("androidx.appcompat:appcompat:1.7.1")
     implementation(platform("androidx.compose:compose-bom:2025.12.01"))
